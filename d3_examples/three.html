@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.axis path {
+				stroke-width:1;
+				fill:none;
+				stroke: #333;
+				shape-rendering: crispEdges;
+			}
+			.x.axis text {
+				text-anchor: end !important;
+				font-size: 10px;
+				transform: rotate( -65deg );
+			}
+			g.dots {
+				stroke: #00ffd2;
+				fill: #006bff;
+			}
+			g.dots text {
+				display:none;
+				fill: red;
+				stroke: red;
+				text-anchor: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="viz-wrapper"></div>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			var height = 800,
+			    width  = 500;
+
+			var padding = 50;
+
+			var defaultCircleRadius = 2;
+
+			var zoom = d3.behavior.zoom().scaleExtent([1,10]).on('zoom', zoomed);
+			function zoomed(){
+				viz.attr('transform', 'translate(' + d3.event.translate + ')' + 'scale(' + d3.event.scale + ')');
+			}
+			function dragStart(d){
+				d3.event.sourceEvent.stopPropagation();
+				d3.select(this).select('circle').style('fill', 'red');
+			}
+			function drag(d){
+				var dx = d3.event.x;
+				var dy = d3.event.y;
+				d3.select(this).attr('transform', 'translate(' + dx + ',' + dy + ')');
+				var date = xScale.invert(d3.event.x);
+				d.DATE = dateParser(date);
+				var temp = yScale.invert(d3.event.y);
+				d.TMAX = temp.toString();
+			}
+			function dragEnd(d){
+			}
+
+			var drag = d3.behavior.drag()
+				.on('dragstart', dragStart)
+				.on('drag', drag)
+				.on('dragend', dragEnd);
+
+
+			var svg = d3.select('#viz-wrapper')
+						.append('svg')
+						.attr('height', height + padding * 2)
+						.attr('width', width + padding * 2)
+						.call(zoom);
+			var viz = svg.append('g')
+						.attr('id', 'viz')
+						.attr('transform', 'translate(' + padding + ', ' + padding + ')');
+
+
+			var yScale = d3.scale.linear();
+			var xScale = d3.time.scale();
+			var rScale = d3.scale.linear();
+			yScale.range([height,0]);
+			xScale.range([0, width]);
+			rScale.range([5,50]);
+
+			var dateParser = d3.time.format("%Y%m%d");
+
+			var solveForR = function(TMAX){
+				var area = Math.abs(TMAX);
+				var r = Math.sqrt(area, Math.PI);
+				return r;
+			}
+
+			var xAxis = d3.svg.axis();
+			xAxis.scale(xScale);
+			xAxis.orient('bottom');
+			xAxis.ticks(8);
+
+			var yAxis = d3.svg.axis();
+			yAxis.scale(yScale);
+			yAxis.orient('left');
+			yAxis.ticks(20);
+
+			d3.csv('data/climate.csv', function(error, data){
+
+				var yDomain = d3.extent(data, function(element){
+					return parseInt(element.TMAX) * 1.1;
+				});
+
+				var xMin = d3.min(data, function(element){
+					var time = dateParser.parse(element.DATE);
+					time.setMonth(time.getMonth() - 1);
+					return time
+				});
+				var xMax = d3.max(data, function(element){
+					var time = dateParser.parse(element.DATE);
+					time.setMonth(time.getMonth() + 1);
+					return time
+				});
+
+				var xDomain = [xMin, xMax];
+				yScale.domain(yDomain);
+				xScale.domain(xDomain);
+
+				var rDomain = d3.extent(data, function(element){
+					return solveForR(parseInt(element.TMAX));
+				});
+				rScale.domain(rDomain);
+
+				viz.append('g').attr('class', 'x axis').attr('transform', 'translate(0,'+height+')').call(xAxis);
+				viz.append('g').attr('class', 'y axis').call(yAxis);
+
+				var dotsGroup = viz.selectAll('g.dots').data(data).enter().append('g').attr('class', 'dots');
+				dotsGroup.attr('transform', function(d){
+					var x = xScale(dateParser.parse(d.DATE));
+					var y = yScale(d.TMAX);
+					return 'translate(' + x + ',' + y + ')';
+				});
+				dotsGroup.append('circle').attr('r', defaultCircleRadius);
+				dotsGroup.append('text').text(function(d){
+					return d.TMAX;
+				});
+
+				dotsGroup.on("mouseenter", function(d, i){
+					var dot = d3.select(this);
+					var radius = solveForR(parseInt(d.TMAX));
+					dot.select('text').style('display', 'block');
+					dot.select('circle').attr('r', rScale(radius));
+				});
+				dotsGroup.on("mouseleave", function(d, i){
+					d3.selectAll('.dots circle').attr('r', defaultCircleRadius);
+					d3.selectAll('.dots text').style('display', 'none');
+				});
+				dotsGroup.call(drag);
+			});
+		</script>
+	</body>
+</html>
