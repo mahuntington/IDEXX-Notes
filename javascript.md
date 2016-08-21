@@ -166,10 +166,73 @@ if(1 === 2){
 
 ## Functions are objects
 
-- can be assigned to variables
-- can be assigned to properties of objects
-- can be passed as parameters to other functions
-- closures
+Functions can be assigned to variables
+
+```javascript
+var myFunc = function(){
+
+}
+
+myFunc();
+```
+Can be assigned to properties of objects
+
+```javascript
+var myObj = {
+	functionProperty: function(){
+
+	}
+}
+
+myObj.functionProperty();
+```
+
+Can be passed as parameters to other functions
+
+```javascript
+function invokingFunction(callbackFunctionParam){ //referenced without ()
+	console.log('event handler');
+	callbackFunctionParam(); //invoked by adding ()
+}
+
+var callbackFunction = function(){
+	console.log('inside callback function');
+}
+
+invokingFunction(callbackFunction); //passed as an object by omitting ()
+```
+
+This can be done **anonymously**
+
+```javascript
+function invokingFunction(callbackParam){
+	console.log('event handler');
+	callbackParam();
+}
+
+invokingFunction(function(){
+	console.log('inside callback function');
+});
+```
+
+Remember that functions can access variables defined outside their scope.  When dealing with functions executed after they declaration, make sure you examine what the values of the variables are
+
+
+```javascript
+function invokingFunction(callbackParam){
+	callbackParam();
+}
+
+var foo = 1;
+
+var callbackFunction = function(){
+	console.log(foo);       
+}
+
+foo = 2;
+
+invokingFunction(callbackFunction); //logs 2
+```
 
 ## Events
 ## Callbacks
