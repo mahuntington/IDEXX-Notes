@@ -21,7 +21,7 @@ var foo = 'string';
 var bar = 1;
 ```
 
-Variables can be reassigned to any other value by omitting the var keyword
+Reassignment is done by omitting the var keyword.  Variables are loosely typed (can be reassigned to any other value, regardless of their initial value)
 
 ```javascript
 var foo = 'a string';
