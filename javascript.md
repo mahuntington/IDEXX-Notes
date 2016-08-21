@@ -234,5 +234,29 @@ foo = 2;
 invokingFunction(callbackFunction); //logs 2
 ```
 
-## Asynchronicity and Callbacks
+## Asynchronicity, Events, and Callbacks
+
+Javascript is **event driven**, meaning that we define event handling functions that just sit around for something to happen and then execute a callback function
+
+```Javascript
+//setTimeout is the event handling function here.  It is built into Node.  The event it handles is the passing of two seconds.  Once this event occurs, it executes its callback function
+setTimeout(function(){
+	console.log('callback function executed!');
+}, 2000);
+```
+
+Node is aware of all event handler functions that are still waiting to execute their callback functions.  It will not return control to the user until either all event handlers have finished waiting or the user forces the process to stop.
+
+It is **VERY** important to be aware that variables outside a callback function's scope can change value even after it has been registered, but before it is called
+
+```javascript
+var foo = 1;
+
+setTimeout(function(){
+	console.log(foo); // log 2, even though foo is 1 at time of registration
+}, 500);
+
+foo = 2;
+```
+
 ## Constructor Functions
