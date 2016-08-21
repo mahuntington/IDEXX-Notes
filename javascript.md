@@ -29,6 +29,50 @@ foo = 123.4;
 ```
 
 ## Functions and Scope
+
+Declare functions with keyword `function`.  Do not need to specify return type.
+
+```javascript
+function myFunc(){
+	return 5;
+}
+```
+
+To execute a function, invoke its name with parentheses
+
+```javascript
+myFunc();
+```
+
+Can pass parameters into functions
+
+```javascript
+function addFive(numberToAddFiveTo){
+	return numberToAddFiveTo + 5;
+}
+addFive(6); // returns 11
+```
+
+Variables declared inside a function cannot be accessed outside of it
+
+```javascript
+function foo(){
+	var myVar = 1;
+	return myVar;
+}
+console.log(myVar); // error
+```
+
+but variables declared outside a function are accessible within it
+
+```javascript
+var myVar = 1;
+function foo(){
+	return myVar;
+}
+console.log(foo());
+```
+
 ## Objects/Arrays
 ## Equality
 ## Control Flow (loops, if/else)
