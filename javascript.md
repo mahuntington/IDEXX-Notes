@@ -10,13 +10,6 @@ Javascript has several basic data types:
 1.2 // number (float)
 true // boolean
 false // boolean
-[1,2,3] // object (array)
-{
-	prop1: 'value1',
-	prop2: 'value1'
-} // object
-null // object (null)
-undefined // undefined
 ```
 
 ## Variables
