@@ -151,7 +151,26 @@ To make it exact, use `===`
 ```
 
 ## Control Flow (loops, if/else)
+
+We can use equality in if/else statements
+
+```javascript
+if(1 === 2){
+	console.log('should not run');
+} else if (1 === 3){
+	console.log('also should not run');
+} else {
+	console.log('runs if all else fails');
+}
+```
+
 ## Functions are objects
+
+- can be assigned to variables
+- can be assigned to properties of objects
+- can be passed as parameters to other functions
+- closures
+
 ## Events
 ## Callbacks
 ## Asynchronicity
