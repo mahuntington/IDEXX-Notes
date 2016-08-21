@@ -175,7 +175,8 @@ var myFunc = function(){
 
 myFunc();
 ```
-Can be assigned to properties of objects
+
+Can be assigned to properties of objects.  These functions are referred to as methods of the object
 
 ```javascript
 var myObj = {
