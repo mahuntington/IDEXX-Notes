@@ -188,6 +188,19 @@ var myObj = {
 myObj.functionProperty();
 ```
 
+When invoking methods, you can reference other properties of the object with the keyword `this`
+
+```javascript
+var myObj = {
+	color: 'blue',
+	functionProperty: function(){
+		console.log(this.color);
+	}
+}
+
+myObj.functionProperty(); //logs 'blue'
+```
+
 Can be passed as parameters to other functions
 
 ```javascript
