@@ -4,7 +4,7 @@
 
 Javascript has several basic data types:
 
-```Javascript
+```javascript
 'this is a string' // string (text)
 123 // number (int)
 1.2 // number (float)
