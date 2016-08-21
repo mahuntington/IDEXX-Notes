@@ -73,7 +73,37 @@ function foo(){
 console.log(foo());
 ```
 
-## Objects/Arrays
+## Arrays
+
+Can create arrays, which are lists of elements of whatever type
+
+```javascript
+var numbers = [1,'string',3.234,true];
+```
+
+Can access an array element by index (which start at 0)
+
+```javascript
+numbers[0]; //first element in array
+```
+
+Can alter values at a preexisting index.  Type does not matter
+
+```javascript
+numbers[1] = 123;
+```
+
+Arrays are objects, so they have properties
+
+```javascript
+numbers.length //gives you the length of the array
+numbers.pop() //remove the last element and returns it
+numbers.push(26) //adds a number to the last position of the array
+numbers.shift() //remove the first element and returns it
+numbers.unshift(56) //adds a number to the first position of the array and pushes everything down
+```
+
+## Objects
 ## Equality
 ## Control Flow (loops, if/else)
 ## Functions are objects
