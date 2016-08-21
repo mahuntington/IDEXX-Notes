@@ -128,6 +128,28 @@ numbers.unshift(56) //adds a number to the first position of the array and pushe
 ```
 
 ## Equality
+
+Can test for equality with `==`
+
+```javascript
+1 == 2 //false
+1 == 1 //true
+'asdf' == 'asdf' //true
+'asdf' == 'asdfasdf' //false
+```
+
+These are not exact and will attempt type conversion
+
+```javascript
+'1' == 1 //true?!?!
+```
+
+To make it exact, use `===`
+
+```javascript
+`1` === 1 //false
+```
+
 ## Control Flow (loops, if/else)
 ## Functions are objects
 ## Events
