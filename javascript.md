@@ -73,6 +73,30 @@ function foo(){
 console.log(foo());
 ```
 
+## Objects
+
+Objects in javascript are just key/value pairs
+
+```javascript
+var myObj = {
+	property1: 'value1',
+	property2: 'value2'
+}
+```
+
+Can retrieve values using dot notation
+
+```javascript
+myObj.property1
+```
+
+Can modify an object's properties like so:
+
+```javascript
+myObj.property1 = 'new value';
+myObj.newProperty = 'asdf';
+```
+
 ## Arrays
 
 Can create arrays, which are lists of elements of whatever type
@@ -103,7 +127,6 @@ numbers.shift() //remove the first element and returns it
 numbers.unshift(56) //adds a number to the first position of the array and pushes everything down
 ```
 
-## Objects
 ## Equality
 ## Control Flow (loops, if/else)
 ## Functions are objects
