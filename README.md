@@ -4,6 +4,10 @@
 
 - [Javascript Notes](javascript.md)
 
+## Node.js
+
+- [Node.js Notes](node.md)
+
 ## D3
 
 Javascript Library for creating 2D data driven visualizations
