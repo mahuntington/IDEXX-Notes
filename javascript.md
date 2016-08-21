@@ -273,4 +273,62 @@ setTimeout(function(){
 foo = 2;
 ```
 
-## Constructor Functions
+## Object Oriented JS
+
+If you need to create multiple objects of the same type, object literals (`{ property:'value'}`) can be inefficient.  We can create constructor functions, which act like class declarations.
+
+```javascript
+var Person = function(){
+	this.numArms = 2; //use the this keyword to create properties and methods
+	this.numLegs = 2;
+}
+
+var me = new Person(); //use the new keyword to instantiate a new object
+var someoneElse = new Person();
+console.log(me);
+console.log(someoneElse);
+```
+
+We can pass parameters into constructor functions to make instances unique
+
+```javascript
+var Person = function(name){
+	this.name = name;
+	this.numArms = 2; //use the this keyword to create properties and methods
+	this.numLegs = 2;
+}
+
+var me = new Person('Matt'); //use the new keyword to instantiate a new object
+var someoneElse = new Person('Joey Jo-Jo Junior Shabadoo');
+console.log(me);
+console.log(someoneElse);
+```
+
+Methods act just like adding properties
+
+```javascript
+var Person = function(name){
+	this.name = name;
+	this.numArms = 2; //use the this keyword to create properties and methods
+	this.numLegs = 2;
+	this.sayHello = function(){
+		console.log("Hello, my name is " + this.name);
+	}
+}
+
+var me = new Person('Matt'); //use the new keyword to instantiate a new object
+me.sayHello();
+```
+
+Since functions are objects, we can create static properties/methods (properties and methods that relate to the class, not the instances of the class) by using dot notation
+
+```javascript
+var Person = function(){
+	/*
+	usual stuff here...
+	*/
+}
+
+Person.genders = ['male', 'female'];
+console.log(Person.genders);
+```
