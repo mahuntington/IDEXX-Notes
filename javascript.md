@@ -20,6 +20,21 @@ undefined // undefined
 ```
 
 ## Variables
+
+Declaring variables is done with the keyword `var`.  Variables are dynamically typed (decided during execution) since there is no compilation process.
+
+```javascript
+var foo = 'string';
+var bar = 1;
+```
+
+Variables can be reassigned to any other value by omitting the var keyword
+
+```javascript
+var foo = 'a string';
+foo = 123.4;
+```
+
 ## Functions and Scope
 ## Objects/Arrays
 ## Equality
