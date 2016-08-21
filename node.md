@@ -1,15 +1,15 @@
 # Node.js
 
-## module.exports/require
 ## NPM
+## module.exports/require
+## Routing
+## MVC
+## Views
 ## Params/Query Strings
 ## CRUD
-## Method Override
-## Body Parser
 ## REST
-## MVC
 ## Middleware
-## Routing
-## Views
+## Body Parser
+## Method Override
 ## Database
 ## Static
