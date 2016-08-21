@@ -234,7 +234,5 @@ foo = 2;
 invokingFunction(callbackFunction); //logs 2
 ```
 
-## Events
-## Callbacks
-## Asynchronicity
+## Asynchronicity and Callbacks
 ## Constructor Functions
