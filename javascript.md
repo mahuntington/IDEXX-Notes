@@ -342,3 +342,19 @@ var Person = function(){
 Person.genders = ['male', 'female'];
 console.log(Person.genders);
 ```
+
+We can have a "class" inherit from another class, using the `.call` static method of a function
+
+```javascript
+var Car = function(){
+	this.wheels = 4;
+}
+
+var Humvee = function(){
+	Car.call(this);
+	this.numAmericanFlags = 4;
+}
+
+var murica = new Humvee();
+console.log(murica);
+```
