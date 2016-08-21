@@ -12,6 +12,16 @@ true // boolean
 false // boolean
 ```
 
+They can be combined in the usual ways
+
+```javascript
+2+2
+3.2*4
+5/2
+9.6-2
+'first string ' + 'second string.';
+```
+
 ## Variables
 
 Declaring variables is done with the keyword `var`.  Variables are dynamically typed (decided during execution) since there is no compilation process.
