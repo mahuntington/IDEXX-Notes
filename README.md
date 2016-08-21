@@ -1,5 +1,9 @@
 # IDEX Notes
 
+## Javascript Review
+
+- [Javascript Notes](javascript.md)
+
 ## D3
 
 Javascript Library for creating 2D data driven visualizations
