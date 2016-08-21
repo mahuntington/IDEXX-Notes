@@ -8,6 +8,10 @@
 
 - [Node.js Notes](node.md)
 
+## SVG
+
+- [SVG Notes](svg.md)
+
 ## D3
 
 Javascript Library for creating 2D data driven visualizations
