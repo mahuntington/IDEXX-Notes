@@ -30,6 +30,28 @@ require('yourJSFile.js');
 
 You can assign this to a variable to use later
 
+## Instantation
+
+First require express:
+
+```javascript
+var express = require('express'); //include express package
+```
+
+`express` has lots of abilities, but we just want to start up a server app:
+
+```javascript
+var app = express(); // create an express app
+```
+
+Then make it listen on a port
+
+```javascript
+app.listen(3000, function(){ //start the server
+	console.log('listening on port ' + PORT);
+});
+```
+
 ## Routing
 ## MVC
 ## Views
