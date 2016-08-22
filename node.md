@@ -32,7 +32,7 @@ You can assign this to a variable to use later
 
 ## Instantation
 
-First require express:
+First install express with `npm install express --save` and require it
 
 ```javascript
 var express = require('express'); //include express package
