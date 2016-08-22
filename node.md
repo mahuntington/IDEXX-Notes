@@ -82,7 +82,11 @@ app.get('/', function(req, res){ // route for /
 
 This sets up an event listener for any GET request that comes into the server with the path of `/`.  Give it a callback function which takes a request variable and a respond variable.  Each of these have different methods/properties which we'll learn about
 
-This can get difficult to maintain with a lot of variables, so we can group urls together
+## MVC
+
+One of the main goals of express is to cleanly separate data from the view layer.  To do this, it follows the Model View Controller pattern, which creates a middleman (Controller) which passes data (Models) off to the presentation/html (View) layer
+
+In addition, putting all your routes inside server.js can become difficult to maintain with a lot of variables.  We can group similar urls together into separate "controller" files.
 
 ```javascript
 var runsController = require('./controllers/runs.js'); //require our own runsController
@@ -99,7 +103,7 @@ controller.get('/', function(req, res){ //route for finding all routes by a the 
 module.exports = controller;
 ```
 
-## MVC
+
 ## Views
 ## Params/Query Strings
 ## REST
