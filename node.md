@@ -93,7 +93,7 @@ var runsController = require('./controllers/runs.js'); //require our own runsCon
 app.use('/runs/', runsController); //use it for anything starting with /runs
 ```
 
-Now, in a separate file, we can use:
+Now, create a controllers directory, create an appropriately named file, and use:
 
 ```javascript
 var controller = require('express').Router(); //require express and create a router (controller)
