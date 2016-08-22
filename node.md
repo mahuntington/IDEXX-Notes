@@ -6,7 +6,7 @@
 ## MVC
 ## Views
 ## Params/Query Strings
-## CRUD
+## CRUD and HTTP Verbs
 ## REST
 ## Middleware
 ## Body Parser
