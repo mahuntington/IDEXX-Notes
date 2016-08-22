@@ -52,11 +52,39 @@ app.listen(3000, function(){ //start the server
 });
 ```
 
+## CRUD and HTTP Verbs
+
+In comp sci, there are different kinds of action you can take on data
+
+- create
+- read
+- update
+- destroy
+
+There are different kinds of 'methods' you can use to make a request to a server that map to these actions:
+
+- post (create)
+- get (read)
+- put/patch (update)
+- delete (delete)
+
+PUT is for updating an entire model, PATCH is for changing just a few attributes
+
 ## Routing
+
+Basic routing can be done at the app level
+
+```javascript
+app.get('/', function(req, res){ // route for /
+	res.send('hi'); //respond with 'hi'
+});
+```
+
+This sets up an event listener for any GET request that comes into the server with the path of `/`.  Give it a callback function which takes a request variable and a respond variable.  Each of these have different methods/properties which we'll learn about
+
 ## MVC
 ## Views
 ## Params/Query Strings
-## CRUD and HTTP Verbs
 ## REST
 ## Middleware
 ## Body Parser
