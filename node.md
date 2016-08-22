@@ -82,6 +82,23 @@ app.get('/', function(req, res){ // route for /
 
 This sets up an event listener for any GET request that comes into the server with the path of `/`.  Give it a callback function which takes a request variable and a respond variable.  Each of these have different methods/properties which we'll learn about
 
+This can get difficult to maintain with a lot of variables, so we can group urls together
+
+```javascript
+var runsController = require('./controllers/runs.js'); //require our own runsController
+app.use('/runs/', runsController); //use it for anything starting with /runs
+```
+
+Now, in a separate file, we can use:
+
+```javascript
+var controller = require('express').Router(); //require express and create a router (controller)
+controller.get('/', function(req, res){ //route for finding all routes by a the session user
+	res.send('runs index');
+});
+module.exports = controller;
+```
+
 ## MVC
 ## Views
 ## Params/Query Strings
