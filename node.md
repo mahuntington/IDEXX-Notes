@@ -103,8 +103,50 @@ controller.get('/', function(req, res){ //route for finding all routes by a the 
 module.exports = controller;
 ```
 
-
 ## Views
+
+Let's separate the views from the controller.  Install express with `npm install ejs --save`
+
+Create a directory called 'views' and create an appropriately named file with the extension .ejs.  Now we can reference it.  Express will assume the file path starts with the 'views' directory you created.
+
+```javascript
+var controller = require('express').Router(); //require express and create a router (controller)
+controller.get('/', function(req, res){ //route for finding all routes by a the session user
+	res.render('viewFile.ejs');
+});
+module.exports = controller;
+```
+
+EJS files are just html, but you can use javascript to dynamically create HTML:
+
+```html
+<ul>
+	<% for(var i = 0; i < 4; i++) { %>
+		<li>
+			<%= i %><!-- add = to write a value to the html.  Omit the = and it will just run the JS, but not show anything visually -->
+		</li>
+	<% } %>
+</ul>
+```
+
+You can pass data into the view file by adding a second parameter that's an object.  The properties of the object will become the variable name that's accessible in the view file.
+
+```javascript
+var controller = require('express').Router(); //require express and create a router (controller)
+controller.get('/', function(req, res){ //route for finding all routes by a the session user
+	res.render('viewFile.ejs', {
+		variable1Name: 'variable 1 value'
+	});
+});
+module.exports = controller;
+```
+
+Now inside the .ejs file, we can access `variable1Name` like so:
+
+```html
+Value: <%= variable1Name; %>
+```
+
 ## Params/Query Strings
 ## REST
 ## Middleware
