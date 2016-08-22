@@ -174,6 +174,26 @@ if(1 === 2){
 }
 ```
 
+## Loops
+
+We can repeat a block of code over and over again while a certain statement is true
+
+```javascript
+var i = 1;
+while(i < 5){
+	console.log(i);
+	i++;
+}
+```
+
+We can use `for` loops as a shorthand for the above
+
+```javascript
+for(var i = 1; i < 5; i++){
+	console.log(i);
+}
+```
+
 ## Functions are objects
 
 Functions can be assigned to variables
