@@ -19,6 +19,33 @@ SVG tag is an inline element
 	- -x goes left
 	- -y goes up
 
+## Styling
+
+Can be done with attributes:
+
+- `fill=red` or `fill=#ff0000` fill color
+- `stroke=red` or `stroke=#ff0000` stroke color
+- `stroke-width=4` width of stroke
+- `fill-opacity=0.5` transparency of fill
+- `stroke-opacity=0.5` transparency of stroke
+- `transform = "translate(2,3)"`
+- `transform = "scale(2.1)"`
+- `transform = "rotate(45deg)"`
+
+
+Can also be done with CSS:
+
+```css
+circle {
+	fill:red;
+	stroke:blue;
+	stroke-width:3;
+	fill-opacity:0.5;
+	stroke-opacity:0.1;
+	transform:rotate(45deg) scale(0.4) translate(155px, 1px);
+}
+```
+
 ## Circle
 
 - attributes
@@ -76,33 +103,11 @@ SVG tag is an inline element
 ```
 
 ## Polyline
-## Path
 
-## Styling
+A series of connected lines.  Can have a fill like a polygon, but won't automatically rejoin itself
 
-Can be done with attributes:
-
-- `fill=red` or `fill=#ff0000` fill color
-- `stroke=red` or `stroke=#ff0000` stroke color
-- `stroke-width=4` width of stroke
-- `fill-opacity=0.5` transparency of fill
-- `stroke-opacity=0.5` transparency of stroke
-- `transform = "translate(2,3)"`
-- `transform = "scale(2.1)"`
-- `transform = "rotate(45deg)"`
-
-
-Can also be done with CSS:
-
-```css
-circle {
-	fill:red;
-	stroke:blue;
-	stroke-width:3;
-	fill-opacity:0.5;
-	stroke-opacity:0.1;
-	transform:rotate(45deg) scale(0.4) translate(155px, 1px);
-}
+```xml
+<polyline points="20,20 40,25 60,40 80,120 120,140 200,180" stroke="blue" fill="none"/>
 ```
 
 ## Path
