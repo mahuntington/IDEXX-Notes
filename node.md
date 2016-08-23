@@ -439,3 +439,48 @@ Runs.destroy({ //destroy the run as specified by id in the url
 	res.json(didSucceed); //send back if it succeeded
 });
 ```
+
+We can set up relationships between models easily:
+
+```javascript
+var Sequelize = require('sequelize'); //require sequelize package
+var Runs = require('./run.js'); //require our Runs model
+var db = require('./db.js'); //require connection to the DB
+
+var Users = db.define('user', { //set up model for Users
+	username: {
+		type: Sequelize.STRING, //string data type
+		unique: true //each value must be unique in the DB
+	},
+	password: Sequelize.STRING //string for password
+});
+
+Users.hasMany(Runs, { as: 'Runs' }); //set up the relationship that Users have many runs.  Will create a user_id column in the Runs table
+
+db.sync(); //if table does not exist yet, create it
+
+module.exports = Users;
+```
+
+Now, when we have a specific user object we have methods like `.getRuns()` and `.addRun()`:
+
+```javascript
+Users.findById(1).then(function(user){ //find the user in the DB who's ID is 1
+	user.getRuns().then(function(runs){ //get that user's runs
+		//do something with 'runs' param
+	});
+});
+```
+
+```javascript
+Users.findById(1).then(function(foundUser){ //get the user from the DB
+	Runs.create({
+		date: new Date('2017-1-1'),
+		distance: 6.1		
+	}).then(function(createdRun){ //create a run from req.body data (JSON)
+		foundUser.addRun(createdRun).then(function(){ //add the run to the user
+			//do something here
+		});
+	});;
+});
+```
