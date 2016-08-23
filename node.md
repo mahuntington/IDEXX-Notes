@@ -195,3 +195,5 @@ app.get('/:id', function(req, res){
 ## Method Override
 ## Database
 ## Static
+## Session
+## Bcrypt
