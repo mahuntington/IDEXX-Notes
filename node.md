@@ -349,3 +349,93 @@ Create a directory that matches the name passed to `express.static()`.  Express 
 - The route `/js/app.js` would match the file `/public/js/app.js`
 
 ## Database
+
+- Install postgres driver `npm install pg --save`
+- Install sequelize package `npm install sequelize --save`
+
+Set up a database connection in `models/db.js`
+
+```javascript
+var Sequelize = require('sequelize'); //require sequelize package
+
+var DB_URL = process.env.DATABASE_URL || 'postgres://matthuntington@localhost:5432/sedstack'; //use either environment variable or static url
+
+var db = new Sequelize(DB_URL); //create the connection.  Will not run multiple times, due to require cacheing the file
+
+module.exports = db;
+```
+
+Now we can create a model:
+
+```javascript
+var Sequelize = require('sequelize'); //require sequelize package
+var db = require('./db.js'); //require connection to the db
+
+var Runs = db.define('run', { //set up model variables
+	date: Sequelize.DATE, //use date data type
+	distance: Sequelize.FLOAT, //float for distance
+});
+
+db.sync(); //if table does not exist, create it
+
+module.exports = Runs;
+```
+
+We can now require our run model elsewhere
+
+```javascript
+var Runs = require('./models/runs.js');
+```
+
+and create a run:
+
+```javascript
+Runs.create({
+	date: new Date('2016-1-1'),
+	distance: 5.5
+}).then(function(createdRun){
+	//createdRun is the object representation of the row created in the DB
+});
+```
+
+find all runs matching a criteria (more on querying: http://docs.sequelizejs.com/en/v3/docs/querying/)
+
+```javascript
+Runs.findAll({
+	where: {
+		distance: 5.5
+	}
+}).then(function(foundRuns){
+	//an array of run objects that represent rows in the db
+});
+```
+
+update all runs matching a criteria
+
+```javascript
+Runs.update(
+	{
+		date: new Date('2017-1-1'),
+		distance: 6.1
+	}, //change the selected runs to match this object
+	{
+		where: {
+			id: 1 //only update rows that have the column id set to 1
+		}
+	}
+).then(function(didSucceed){
+	res.json(didSucceed); //respond with success status
+});
+```
+
+delete all runs matching a criteria
+
+```javascript
+Runs.destroy({ //destroy the run as specified by id in the url
+	where: {
+		id: 1 //only delete rows that have the column id set to 1
+	}
+}).then(function(didSucceed){
+	res.json(didSucceed); //send back if it succeeded
+});
+```
