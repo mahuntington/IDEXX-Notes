@@ -1,5 +1,13 @@
 # SVG
 
+## Base tag
+
+Everything goes inside here
+
+```xml
+<svg></svg>
+```
+
 ## Positioning
 
 SVG tag is an inline element
