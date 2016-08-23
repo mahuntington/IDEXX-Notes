@@ -50,7 +50,7 @@ SVG tag is an inline element
 	- `y` y position of top left
 
 ```xml
-<rect x="50" y="20" width="150" height="150"></rect>
+<rect x="50" y="20" width="150" height="150"/>
 ```
 
 ## Ellipse
