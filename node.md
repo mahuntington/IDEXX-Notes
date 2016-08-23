@@ -387,7 +387,7 @@ We can now require our run model elsewhere
 var Runs = require('./models/runs.js');
 ```
 
-and create a run:
+and create a run (all sequelize db query functions return a promise.  This is an object that has a `then()` function that takes two params, a success callback for when the query succeeds and a fail callback for when it doesn't.  Only the success callback is shown below):
 
 ```javascript
 Runs.create({
