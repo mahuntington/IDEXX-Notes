@@ -1,8 +1,9 @@
 # SVG
 
+## Positioning
+
 SVG tag is an inline element
 
-## Positioning
 - (0,0) - x = 0, y = 0
 - starts at top left
 - y increases vertically down
@@ -52,20 +53,6 @@ SVG tag is an inline element
 
 - Content of tag is the text
 
-## Transform
-
-Is an attribute
-
-- `transform = "translate(x,y)"`
-- `transform = "scale(factor)"`
-- `rotate = "rotate(degrees)"`
-
-## Group
-
-- `<g></g>`
-- can put multiple elements inside it.
-- positioning and styling apply to children
-
 ## Styling
 
 Can be done with attributes:
@@ -73,6 +60,12 @@ Can be done with attributes:
 - `fill=red` or `fill=#ff0000` fill color
 - `stroke=red` or `stroke=#ff0000` stroke color
 - `stroke-width=4` width of stroke
+- `fill-opacity=0.5` transparency of fill
+- `stroke-opacity=0.5` transparency of stroke
+- `transform = "translate(2,3)"`
+- `transform = "scale(2.1)"`
+- `transform = "rotate(45deg)"`
+
 
 Can also be done with CSS:
 
@@ -81,5 +74,14 @@ circle {
 	fill:red;
 	stroke:blue;
 	stroke-width:3;
+	fill-opacity:0.5;
+	stroke-opacity:0.1;
+	transform:rotate(45deg) scale(0.4) translate(155px, 1px);
 }
 ```
+
+## Group
+
+- `<g></g>`
+- can put multiple elements inside it.
+- positioning and styling apply to children
