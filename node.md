@@ -281,6 +281,37 @@ https://gist.github.com/alexpchin/09939db6f81d654af06b
 | /photos/:id     | DELETE      | destroy  |
 
 ## Session
+
+Cookies are used in browsers to store data on a user's computer.  This way, when the user returns, the site can use that data to customize the app.  Cookies are stored in plain-text though, so typically we use sessions, which are encrypted cookies that only last as long as the user's browser is open.
+
+`npm install express-session --save` and require it:
+
+```javascript
+var session = require('express-session'); //include express sessions for session work
+```
+
+Now we "use" it:
+
+```javascript
+app.use(session({ //setting up session encryption info
+	secret: "seakrett", //unique keyword for encrypting session data
+	resave: false, // don't resave session if nothing changed
+	saveUninitialized: false //even if no data, set a cookie
+}));
+```
+
+To set data, simply run:
+
+```javascript
+req.session.userData = 'some value';
+```
+
+To get data, simply run:
+
+```javascript
+var userData = req.session.userData;
+```
+
 ## Bcrypt
 ## Static
 ## Database
