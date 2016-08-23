@@ -135,6 +135,7 @@ numbers.pop() //remove the last element and returns it
 numbers.push(26) //adds a number to the last position of the array
 numbers.shift() //remove the first element and returns it
 numbers.unshift(56) //adds a number to the first position of the array and pushes everything down
+numbers.splice(startIndex, numberOfItemsToRemove); //remove an element at a specified index and shift elements to the right down
 ```
 
 ## Equality
