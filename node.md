@@ -191,6 +191,49 @@ app.get('/:id', function(req, res){
 ```
 
 ## Body Parser
+
+We can also pass data to server in the body of the request.
+
+### Form data
+
+```html
+<form action="/runs" method="POST">
+	<input type="text" name="param1"/>
+</form>
+```
+
+`npm install body-parser --save` and require it
+
+```javascript
+var bodyParser = require('body-parser');
+```
+
+Next, tell express to expect form data
+
+```javascript
+app.use(bodyParser.urlencoded({ extended: false })) //tell body parser that we'll be passing in form data
+```
+
+Then, inside any request handler, we can access the form data, formatted as a JS object:
+
+```javascript
+app.post('/run', function(req, res){
+	var param1 = req.body.param1;
+});
+```
+
+### JSON
+
+Install and require `body-parser` as before, but the middleware changes:
+
+```javascript
+controller.use(bodyParser.json()); //anything handled by this controller is expecting JSON data, not form data
+```
+
+Now instead of using form data, we can use Postman.  Create a new tab, choose method, select "body", choose "raw", click on Text dropdown and choose JSON(application/json).  Make sure Headers have a line for "Content-Type" set to "application/json"
+
+We can capture the `req.body` params the same way as with form data.
+
 ## REST
 ## Method Override
 ## Database
