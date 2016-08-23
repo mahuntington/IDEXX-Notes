@@ -66,6 +66,15 @@ SVG tag is an inline element
 ```
 
 ## Polygon
+
+- attributes
+	- `points` set of coordinate pairs
+		- each pair is of the form x,y
+
+```xml
+<polygon points="200,10 250,190 160,210" />
+```
+
 ## Polyline
 ## Path
 
