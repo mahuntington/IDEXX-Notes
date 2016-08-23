@@ -112,19 +112,27 @@ A series of connected lines.  Can have a fill like a polygon, but won't automati
 
 ## Path
 
+https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+
 - attributes
 	- `d` a set of drawing commands
 		- M = moveto
 		- L = lineto
 		- C = curveto
-			- x1 y1, x2 y2, x y
+			- C x1 y1, x2 y2, x y
 			- first pair is first control point
 			- second pair is second control point
 			- last pair is final ending point of curve
 		- S = smooth curveto
+			- S x2 y2, x y
+			- follows another S or C command
+			- uses x2 y2 of previous S or C command
 		- Q = quadratic Bézier curve
+			- Q x1 y1, x y
+			- uses one control point for start and end controls
 		- T = smooth quadratic Bézier curveto
-		- A = elliptical Arc
+			- T x y
+			- strings together multiple quadratic lines
 		- Z = closepath
 	- **Note:** All of the commands above can also be expressed with lower letters. Capital letters means absolutely positioned, lower cases means relatively positioned.
 
