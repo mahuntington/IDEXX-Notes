@@ -147,10 +147,29 @@ Now inside the .ejs file, we can access `variable1Name` like so:
 Value: <%= variable1Name; %>
 ```
 
-## Params/Query Strings
-## REST
-## Middleware
+## URL Params/Query Strings
+
+Data can be passed to the server through query strings (a.ka. GET parameters) which look like ?param1=value1&param2=value2
+
+They can be accessed like so:
+
+```javascript
+app.get('/', function(req, res){
+	var param1 = req.query.param1;
+	var param2 = req.query.param2;
+});
+```
+
+Your route can also have parameters in the path section
+
+```javascript
+app.get('/:id', function(req, res){
+	var id = req.params.id;
+});
+```
+
 ## Body Parser
+## REST
 ## Method Override
 ## Database
 ## Static
