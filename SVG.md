@@ -112,6 +112,26 @@ A series of connected lines.  Can have a fill like a polygon, but won't automati
 
 ## Path
 
+- attributes
+	- `d` a set of drawing commands
+		- M = moveto
+		- L = lineto
+		- C = curveto
+			- x1 y1, x2 y2, x y
+			- first pair is first control point
+			- second pair is second control point
+			- last pair is final ending point of curve
+		- S = smooth curveto
+		- Q = quadratic Bézier curve
+		- T = smooth quadratic Bézier curveto
+		- A = elliptical Arc
+		- Z = closepath
+	- **Note:** All of the commands above can also be expressed with lower letters. Capital letters means absolutely positioned, lower cases means relatively positioned.
+
+```xml
+<path d="M150 0 L75 200 L225 200 Z" />
+``
+
 ## Text
 
 Content of tag is the text
