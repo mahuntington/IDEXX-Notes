@@ -27,11 +27,7 @@ SVG tag is an inline element
 	- `cy` y position
 
 ```xml
-<svg height="800" width="500">
-	<circle/>
-	<circle r="50"/>
-	<circle r="50" cx="200" cy="300"/>
-</svg>
+<circle r="50" cx="200" cy="300"/>
 ```
 
 ## Line
