@@ -236,7 +236,33 @@ We can capture the `req.body` params the same way as with form data.
 
 ## Method Override
 
+Unfortunately, forms can only use methods that are GET or POST.  To fake DELETE, or PUT/PATCH we use the package `method-override`.  Install it using `npm install method-override --save` and require it
 
+```javascript
+var methodOverride = require('method-override');
+```
+
+Use it:
+
+```javascript
+controller.use(methodOverride('_method')); //tell method override to expect ?method=PUT/DELETE attached to POST requests
+```
+
+Then in our form we add an extra get param (the param name must match what's passed to the methodOverride function):
+
+```html
+<form action="/runs?_method=DELETE" method="POST">
+	<input type="text" name="param1"/>
+</form>
+```
+
+Now the appropriate route handler will handle the request
+
+```javascript
+app.delete('/runs', function(req, res){
+
+});
+```
 
 ## REST
 
