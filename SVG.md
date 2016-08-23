@@ -124,10 +124,13 @@ Can use font-family and font-size CSS styling
 
 ## Group
 
-- `<g></g>`
+- no special attributes, so use transform
 - can put multiple elements inside it.
 - positioning and styling apply to children
 
+```xml
+<g></g>
+```
 
 ## Documentation
 
