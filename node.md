@@ -280,7 +280,7 @@ https://gist.github.com/alexpchin/09939db6f81d654af06b
 | /photos/:id     | PATCH/PUT   | update   |
 | /photos/:id     | DELETE      | destroy  |
 
-## Database
 ## Static
 ## Session
 ## Bcrypt
+## Database
