@@ -313,5 +313,26 @@ var userData = req.session.userData;
 ```
 
 ## Bcrypt
+
+To encrypt information, we `npm install bcrypt --save` and require it:
+
+```javascript
+var bcrypt = require('bcrypt');
+```
+
+To encrypt a value:
+
+```javascript
+var encryptedValue = bcrypt.hashSync('value to encrypt', bcrypt.genSaltSync(10));
+```
+
+genSaltSync determines how difficult it is to crack the encryption.  The higher the number, the harder it is, but the longer it takes.  10 is usually good.
+
+Using this technique, the same starting value will not be encrypted the same way twice.  This prevents from a hacker from guessing other users' passwords based on matching encrypted values.  This means that we can never decrypt a salted value.  Instead, we can only compare it with another salted value to see if they so close that they can't be anything but the same.
+
+```javascript
+var valuesMatch = bcrypt.compareSync('does salted value match this?', saltedValue);
+```
+
 ## Static
 ## Database
