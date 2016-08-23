@@ -335,4 +335,17 @@ var valuesMatch = bcrypt.compareSync('does salted value match this?', saltedValu
 ```
 
 ## Static
+
+If we have static files (JS, CSS, HTML, etc), we can put them in a directory used just for these kinds of files.  Use this near the top of server.js:
+
+```javascript
+app.use(express.static('public')); //set up a static asset dir in /public
+```
+
+Create a directory that matches the name passed to `express.static()`.  Express will try to match requests with files in that directory
+
+- The route `/plain.html` would match the file `/public/plain.html`
+- The route `/css/app.css` would match the file `/public/css/app.css`
+- The route `/js/app.js` would match the file `/public/js/app.js`
+
 ## Database
