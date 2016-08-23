@@ -53,6 +53,15 @@ SVG tag is an inline element
 ```
 
 ## Rectangle
+
+- attributes
+	- `x` x position of top left
+	- `y` y position of top left
+
+```xml
+<rect x="50" y="20" width="150" height="150"></rect>
+```
+
 ## Ellipse
 ## Polygon
 ## Polyline
