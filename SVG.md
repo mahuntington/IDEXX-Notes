@@ -54,6 +54,17 @@ SVG tag is an inline element
 ```
 
 ## Ellipse
+
+- attributes
+	- `cx` x position
+	- `cy` y position
+	- `rx` x radius
+	- `ry` y radius
+
+```xml
+<ellipse cx="200" cy="80" rx="100" ry="50"/>
+```
+
 ## Polygon
 ## Polyline
 ## Path
