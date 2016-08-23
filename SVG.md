@@ -49,9 +49,6 @@ SVG tag is an inline element
 ## Polygon
 ## Polyline
 ## Path
-## Text
-
-- Content of tag is the text
 
 ## Styling
 
@@ -79,6 +76,16 @@ circle {
 	transform:rotate(45deg) scale(0.4) translate(155px, 1px);
 }
 ```
+
+## Text
+
+Content of tag is the text
+
+```xml
+<text x="0" y="15">I love SVG!</text>
+```
+
+Can use font-family and font-size CSS styling
 
 ## Group
 
