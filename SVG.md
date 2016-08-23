@@ -105,6 +105,8 @@ circle {
 }
 ```
 
+## Path
+
 ## Text
 
 Content of tag is the text
