@@ -39,13 +39,8 @@ SVG tag is an inline element
 	- `y2` ending y position
 
 ```xml
-<svg height="800" width="500">
-	<line/>
-	<line x1="0" y1="0" x2="100" y2="100"/> <!-- no stroke, so invisible -->
-	<line x1="0" y1="0" x2="100" y2="100" stroke="purple"/>
-	<line x1="10" y1="0" x2="10" y2="100" stroke="red"/>
-	<line x1="30" y1="10" x2="130" y2="10" stroke="blue"/>
-</svg>
+<line x1="0" y1="0" x2="100" y2="100"/> <!-- no stroke, so invisible -->
+<line x1="0" y1="0" x2="100" y2="100" stroke="purple"/>
 ```
 
 ## Rectangle
