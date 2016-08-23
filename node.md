@@ -82,6 +82,28 @@ app.get('/', function(req, res){ // route for /
 
 This sets up an event listener for any GET request that comes into the server with the path of `/`.  Give it a callback function which takes a request variable and a respond variable.  Each of these have different methods/properties which we'll learn about
 
+## Middleware
+
+We can define a callback function that is called or all requests and then continues on to other request handlers
+
+```javascript
+app.use(function(req, res, next){
+	console.log('middleware');
+	next();
+})
+```
+
+`next();` tells express to continue processing the request.  `app.get(),app.post()`, etc have this ability too, but it's rarely used.
+
+Just like with `app.get(),app.post()`, etc we can add the ability to handle just those requests that match a url pattern
+
+```javascript
+app.use('/foo', function(req, res, next){
+	console.log('middleware');
+	next();
+})
+```
+
 ## MVC
 
 One of the main goals of express is to cleanly separate data from the view layer.  To do this, it follows the Model View Controller pattern, which creates a middleman (Controller) which passes data (Models) off to the presentation/html (View) layer
