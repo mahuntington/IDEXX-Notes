@@ -235,6 +235,21 @@ Now instead of using form data, we can use Postman.  Create a new tab, choose me
 We can capture the `req.body` params the same way as with form data.
 
 ## REST
+
+There are seven routes which control basic HTTP operations for data:
+
+https://gist.github.com/alexpchin/09939db6f81d654af06b
+
+| **URL** | **HTTP Verb** |  **Action**|
+|------------|-------------|------------|
+| /photos/         | GET       | index  
+| /photos/new         | GET       | new   
+| /photos          | POST      | create   
+| /photos/:id      | GET       | show       
+| /photos/:id/edit | GET       | edit       
+| /photos/:id      | PATCH/PUT | update    
+| /photos/:id      | DELETE    | destroy  
+
 ## Method Override
 ## Database
 ## Static
