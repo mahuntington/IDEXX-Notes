@@ -118,6 +118,12 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
 	- `d` a set of drawing commands
 		- M = moveto
 		- L = lineto
+		- Q = quadratic Bézier curve
+			- Q x1 y1, x y
+			- uses one control point for start and end controls
+		- T = smooth quadratic Bézier curveto
+			- T x y
+			- strings together multiple quadratic lines
 		- C = curveto
 			- C x1 y1, x2 y2, x y
 			- first pair is first control point
@@ -127,12 +133,6 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
 			- S x2 y2, x y
 			- follows another S or C command
 			- uses x2 y2 of previous S or C command
-		- Q = quadratic Bézier curve
-			- Q x1 y1, x y
-			- uses one control point for start and end controls
-		- T = smooth quadratic Bézier curveto
-			- T x y
-			- strings together multiple quadratic lines
 		- Z = closepath
 	- **Note:** All of the commands above can also be expressed with lower letters. Capital letters means absolutely positioned, lower cases means relatively positioned.
 
