@@ -30,7 +30,7 @@ Can be done with attributes:
 - `stroke-opacity=0.5` transparency of stroke
 - `transform = "translate(2,3)"`
 - `transform = "scale(2.1)"`
-- `transform = "rotate(45deg)"`
+- `transform = "rotate(45)"`
 
 
 Can also be done with CSS:
