@@ -312,6 +312,14 @@ To get data, simply run:
 var userData = req.session.userData;
 ```
 
+To destroy a session:
+
+```javascript
+req.session.destroy(function(){
+	//do something once session destroy succeeds
+});
+```
+
 ## Bcrypt
 
 To encrypt information, we `npm install bcrypt --save` and require it:
