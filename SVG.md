@@ -42,7 +42,7 @@ circle {
 	stroke-width:3;
 	fill-opacity:0.5;
 	stroke-opacity:0.1;
-	transform:rotate(45deg) scale(0.4) translate(155px, 1px);
+	transform:rotate(45) scale(0.4) translate(155px, 1px);
 }
 ```
 
