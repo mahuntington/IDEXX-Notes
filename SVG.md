@@ -75,6 +75,8 @@ circle {
 - attributes
 	- `x` x position of top left
 	- `y` y position of top left
+	- `width` width
+	- `height` height
 
 ```xml
 <rect x="50" y="20" width="150" height="150"/>
@@ -118,12 +120,6 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
 	- `d` a set of drawing commands
 		- M = moveto
 		- L = lineto
-		- Q = quadratic Bézier curve
-			- Q x1 y1, x y
-			- uses one control point for start and end controls
-		- T = smooth quadratic Bézier curveto
-			- T x y
-			- strings together multiple quadratic lines
 		- C = curveto
 			- C x1 y1, x2 y2, x y
 			- first pair is first control point
@@ -133,18 +129,28 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
 			- S x2 y2, x y
 			- follows another S or C command
 			- uses x2 y2 of previous S or C command
+		- Q = quadratic Bézier curve
+			- Q x1 y1, x y
+			- uses one control point for start and end controls (x1, y1)
+		- T = smooth quadratic Bézier curveto
+			- T x y
+			- strings together multiple quadratic lines
 		- Z = closepath
 	- **Note:** All of the commands above can also be expressed with lower letters. Capital letters means absolutely positioned, lower cases means relatively positioned.
 
 ```xml
 <path d="M150 0 L75 200 L225 200 Z" />
-<path d="M0 100 Q 50 50, 100 100 T 200 100 Z" stroke="black" fill="transparent"/>
 <path d="M0 70 C 0 120, 50 120, 50 70 S 100 20, 100 70" stroke="black" fill="transparent"/>
+<path d="M0 100 Q 50 50, 100 100 T 200 100 Z" stroke="black" fill="transparent"/>
 ``
 
 ## Text
 
 Content of tag is the text
+
+- attributes
+	- `x` x position of top left
+	- `y` y position of top left
 
 ```xml
 <text x="0" y="15">I love SVG!</text>
